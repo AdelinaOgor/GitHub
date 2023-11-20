@@ -44,35 +44,37 @@ class MainWindow(QWidget):
         self.btn_begin = QPushButton("Begin practice", self)
         self.layout_main = QVBoxLayout()
  
-        self.layout_main.addWidget(self.my_list, alignment = Qt.AlignLeft)
-        self.layout_main.addWidget(self.btn_question, alignment = Qt.AlignCenter)
+        
 
-        self.layout_main.addWidget(self.lable_intrebareC, alignment = Qt.AlignRight)
-        self.layout_main.addWidget(self.lable_intrebareG1, alignment = Qt.AlignRight)
-        self.layout_main.addWidget(self.lable_intrebareG2, alignment = Qt.AlignRight)
-        self.layout_main.addWidget(self.lable_intrebareG3, alignment = Qt.AlignRight)
-        self.layout_main.addWidget(self.lable_intrebareG4, alignment = Qt.AlignRight)
-        self.layout_main.addWidget(self.lable_intrebareG5, alignment = Qt.AlignRight)
+        
 
         layoutHB = QHBoxLayout()
         layoutHB.addWidget(self.btn_delet, alignment = Qt.AlignCenter) 
         layoutHB.addWidget(self.btn_begin, alignment = Qt.AlignCenter)  
- 
-        self.layout_main.addLayout(layoutHB)
-        layoutH = QHBoxLayout()
         layoutV1 = QVBoxLayout()
-
+        layoutV2 = QVBoxLayout()
         my_elements = [self.lable_intrebare, self.lable_raspunsC, self.lable_raspunsG1, self.lable_raspunsG2, self.lable_raspunsG3]
         for elemet in my_elements:
-            layoutV1.addWidget(elemet, alignment = Qt.AlignRight)
+            layoutV1.addWidget(elemet, alignment = Qt.AlignCenter)
 
-        layoutH.addLayout(layoutV1)
+        layoutV2.addWidget(self.lable_intrebareC, alignment = Qt.AlignCenter)
+        layoutV2.addWidget(self.lable_intrebareG1, alignment = Qt.AlignCenter)
+        layoutV2.addWidget(self.lable_intrebareG2, alignment = Qt.AlignCenter)
+        layoutV2.addWidget(self.lable_intrebareG3, alignment = Qt.AlignCenter)
+        layoutV2.addWidget(self.lable_intrebareG4, alignment = Qt.AlignCenter)
+        layoutV2.addWidget(self.lable_intrebareG5, alignment = Qt.AlignCenter)
+        layoutHB2 = QHBoxLayout()
+        layoutHB2.addLayout(layoutV1)
+        layoutHB2.addLayout(layoutV2)
 
+        layoutHBB = QHBoxLayout() 
+        layoutHBB.addWidget(self.my_list)     
+        layoutHBB.addLayout(layoutHB2)
 
+        self.layout_main.addLayout(layoutHBB)
+        self.layout_main.addLayout(layoutHB)
+        self.layout_main.addWidget(self.btn_question, alignment = Qt.AlignCenter)
 
-        self.layout_main.addLayout(layoutH)
- 
-               
         self.setLayout(self.layout_main)
  
  
